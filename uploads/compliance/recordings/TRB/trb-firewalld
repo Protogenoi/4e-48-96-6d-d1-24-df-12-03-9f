@@ -1,0 +1,21 @@
+sudo yum install firewalld
+sudo systemctl enable firewalld
+
+sudo systemctl start firewalld.service
+firewall-cmd --state OR systemctl status firewalld
+
+
+firewall-cmd --zone=public --permanent--add-rich-rule='rule family="ipv4" source address="198.0.0.0/8"  reject'
+
+firewall-cmd --zone=public --permanent --add-rich-rule='rule family="ipv4" source address="94.23.217.206" accept'
+
+
+firewall-cmd --zone=public --permanent --remove-rich-rule='rule family="ipv4" source address="81.145.167.66/0" accept'
+
+sudo firewall-cmd --zone=public --permanent --add-service=https
+
+
+
+
+firewall-cmd --reload
+firewall-cmd --list-all
